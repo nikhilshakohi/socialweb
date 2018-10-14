@@ -1,0 +1,40 @@
+
+				<a id="profilepagebutton-<?php for($i=0; $i < 10; $i++) { if($_SESSION['profileid'][$i] == $_SESSION['profile_id']){ echo $_SESSION['profileid'][$i]; break; } } ?>" ><?php echo $row['user_first']." ".$row['user_last']; ?></a>  
+
+
+<div id="featured">
+  <ul class="ui-tabs-nav">
+<?php $i = 0; foreach($posts as $post): ?>
+<li class="ui-tabs-nav-item ui-tabs-selected" id="nav-fragment-<?php echo ++$i; ?>">    <a href="<?php //echo $i++;) ?>"><span><?php echo $this->escape($post['title']) ?>
+<?php if($leads): ?>
+      <p><?php echo $this->maxText($post['content'], 50, '...', true) ?></p>
+    <?php endif ?></span>
+  <img class="post-image" src="<?php echo $this->postImage($post['image'], '50px', '50px') ?>" alt="" title="<?php echo $this->escape($post['title']) ?>"/></a>
+ </li>
+<?php endforeach ?>
+</ul>
+</div>
+
+
+<section id="profilepage" style="display: none;">
+	<h1>Welcome</h1>
+	<?php
+		echo $_SESSION['profile_id'];
+		print_r($data[0]);
+	?>
+</section>
+
+
+<script type="text/javascript">
+		function profilepageredirect() {
+		document.getElementById("homepage").style.display = "none";
+		document.getElementById("profilepage").style.display = "block";
+
+	} 
+	for (var i = 1; i < 11; i++) {
+		var name = $("#profilepagebut").attr("name");
+		document.getElementById("profilepagebut").onclick = function() {
+		document.getElementById("profilepagebut").innerHTML = name;
+	}		
+	} 
+</script>
